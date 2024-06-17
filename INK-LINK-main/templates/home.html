@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <style>
+      body {
+          background-image: url('{{ url_for('static', filename='images/bgHome.jpg') }}');
+          background-size: cover;
+          background-position: center;
+          color: white;
+      }
+  </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav_logo"><b>Ink\Link</b></a>
+
+        <ul class="nav_items">
+          <li class="nav_item">
+            <a href="#" class="nav_link">Home</a>
+
+            <a href="#" class="nav_link">About</a>
+            <a href="#" class="nav_link">Contact</a>
+          </li>
+        </ul>
+
+        <button class="button" id="form-open">Login</button>
+      </nav>
+    </header>
+
+    <!-- Home -->
+    <section class="home">
+      <div class="form_container">
+          <i class="uil uil-times form_close"></i>
+          <!-- Login Form -->
+          <div class="form login_form">
+              <form action="{{ url_for('login') }}" method="POST">
+                  <h2>Login</h2>
+                  <div class="input_box">
+                      <input type="email" name="email" placeholder="Enter your email" required />
+                      <i class="uil uil-envelope-alt email"></i>
+                  </div>
+                  <div class="input_box">
+                      <input type="password" name="password" placeholder="Enter your password" required />
+                      <i class="uil uil-lock password"></i>
+                      <i class="uil uil-eye-slash pw_hide"></i>
+                  </div>
+                  <div class="option_field">
+                      <span class="checkbox">
+                          <input type="checkbox" id="check" />
+                          <label for="check">Remember me</label>
+                      </span>
+                      <a href="#" class="forgot_pw">Forgot password?</a>
+                  </div>
+                  <button type="submit" class="button">Login</button>
+                  <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+              </form>
+          </div>
+          <!-- Signup Form -->
+          <div class="form signup_form">
+              <form action="{{ url_for('signup') }}" method="POST">
+                  <h2>Signup</h2>
+                  <div class="input_box">
+                      <input type="text" name="username" placeholder="Create username" required />
+                      <i class="uil uil-envelope-alt email"></i>
+                  </div>
+                  <div class="role-box">
+                      <h5>Select your role :</h5>
+                      <div class="role-option">
+                          <div class="role">
+                              <input type="radio" id="check-student" name="role" value="student" checked />
+                              <label for="check-student">Student</label>
+                          </div>
+                          <div class="role">
+                              <input type="radio" id="check-teacher" name="role" value="teacher" />
+                              <label for="check-teacher">Teacher</label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="select-box">
+                          <select name="department">
+                              <option hidden>Select Department</option>
+                              <option>CSE</option>
+                              <option>EE</option>
+                              <option>ME</option>
+                              <option>ECE</option>
+                              <option>CE</option>
+                          </select>
+                      </div>
+                      <div class="input_box">
+                          <input type="email" name="email" placeholder="Enter your email" required />
+                          <i class="uil uil-envelope-alt email"></i>
+                      </div>
+                      <div class="input_box">
+                          <input type="password" name="password" placeholder="Create password" required />
+                          <i class="uil uil-lock password"></i>
+                          <i class="uil uil-eye-slash pw_hide"></i>
+                      </div>
+                  </div>
+                  <button type="submit" class="button">Signup</button>
+                  <div class="login_signup">Already have an account? <a id="login">Login</a></div>
+              </form>
+          </div>
+      </div>
+  </section>
+  <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>
